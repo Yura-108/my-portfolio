@@ -47,7 +47,7 @@ export default function About() {
             md:left-0 md:top-auto md:bottom-0 md:translate-x-0 md:translate-y-0"
         >
           <img
-            src="/dashulik.png"
+            src={`${import.meta.env.BASE_URL}img1.jpg`}
             alt="my photo"
             className="lg:w-100 lg:h-125 md:w-55 md:h-70 w-45 h-60 object-cover"
             loading="lazy"
