@@ -1,0 +1,38 @@
+body {
+    overflow-x: hidden;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+
+    100% {
+        transform: translate3d(-25%, 0, 0);
+    }
+}
+
+@keyframes marquee-reverse {
+    0% {
+        transform: translate3d(-25%, 0, 0);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+
+.marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee 10s linear infinite;
+    will-change: transform;
+}
+
+.marquee-track-reverse {
+    display: flex;
+    width: max-content;
+    animation: marquee-reverse 10s linear infinite;
+    will-change: transform;
+}
