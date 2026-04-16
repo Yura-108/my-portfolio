@@ -5,7 +5,9 @@ export default function About() {
     <div className="relative w-full container mx-auto
                     min-h-90 md:min-h-72.5 lg:min-h-130
                     flex flex-col items-center md:gap-12 lg:gap-10
-                    md:flex-row md:items-end md:justify-between">
+                    md:flex-row md:items-end md:justify-between
+                    mt-13
+                    ">
 
       {/* Текст */}
       <p className="
@@ -47,7 +49,7 @@ export default function About() {
             md:left-0 md:top-auto md:bottom-0 md:translate-x-0 md:translate-y-0"
         >
           <img
-            src={`${import.meta.env.BASE_URL}img1.jpg`}
+            src={`${import.meta.env.BASE_URL}dashulik.png`}
             alt="my photo"
             className="lg:w-100 lg:h-125 md:w-55 md:h-70 w-45 h-60 object-cover"
             loading="lazy"

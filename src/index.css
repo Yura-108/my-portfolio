@@ -137,6 +137,7 @@
 
 @theme {
     --breakpoint-sm: 22.5rem;
+    --breakpoint-md: 48rem;
     --breakpoint-lg: 86.25rem;
     --breakpoint-xl: 120rem;
     --breakpoint-2xl: 160rem;
