@@ -12,9 +12,9 @@ export function ProjectsMobile({className}: {className?: string}) {
       <div className="relative w-80 h-75.5 grid grid-rows-2 grid-cols-2">
         <div className="absolute w-full h-px left-1/2 top-1/2 -translate-1/2 bg-black" />
         <div className="absolute h-75.5 w-px left-1/2 top-1/2 -translate-1/2 bg-black" />
-        <div className="">
+        <a href="https://www.behance.net/gallery/240483513/MIDNIGHT-Corporate-site" target="_blank">
           <img width="155" height="146" src={`${import.meta.env.BASE_URL}img1.jpg`} alt=""/>
-        </div>
+        </a>
         <div className="flex items-center p-1.25">
           <h2 className="text-start text-base">Сайт для спа салона</h2>
         </div>
@@ -23,7 +23,9 @@ export function ProjectsMobile({className}: {className?: string}) {
             онлайн-кинотеатра</h2>
         </div>
         <div className="flex justify-end items-end">
-          <img width="155" height="146" src={`${import.meta.env.BASE_URL}img2.jpg`} alt=""/>
+          <a target="_blank" href="https://www.behance.net/gallery/240501471/SEE-YOU-LATER-Mobile-Cinema-App">
+            <img width="155" height="146" src={`${import.meta.env.BASE_URL}img2.jpg`} alt=""/>
+          </a>
         </div>
       </div>
       <div className="w-full h-13.75 flex justify-center items-center mt-10 bg-white">
@@ -52,12 +54,14 @@ export function ProjectsDesktop({className}: {className?: string}) {
         <Reveal>
           {/* Добавлен overflow-hidden для зума */}
           <div className="relative w-full h-full group ">
-            <img
-              src={`${import.meta.env.BASE_URL}img_1_xl.jpg`}
-              alt="project"
-              className="w-56.5 h-52.25 lg:w-96.75 lg:h-89.25 xl:w-136 xl:h-129
+            <a target="_blank" href="https://www.behance.net/gallery/240483513/MIDNIGHT-Corporate-site">
+              <img
+                src={`${import.meta.env.BASE_URL}img_1_xl.jpg`}
+                alt="project"
+                className="w-56.5 h-52.25 lg:w-96.75 lg:h-89.25 xl:w-136 xl:h-129
               object-cover transition-transform duration-500 ease-out group-hover:scale-105"
-            />
+              />
+            </a>
 
             {/* Вертикальная SVG линия */}
             <svg
@@ -97,12 +101,14 @@ export function ProjectsDesktop({className}: {className?: string}) {
         {/* Добавлен overflow-hidden для зума */}
         <Reveal>
           <div className="relative w-full h-full flex justify-center items-center group ">
-            <img
-              src={`${import.meta.env.BASE_URL}img_2_xl.jpg`}
-              alt="project"
-              className="w-54.25 h-50 lg:w-94.25 lg:h-86.75 xl:w-134 xl:h-126
+            <a target="_blank" href="https://www.behance.net/gallery/240501471/SEE-YOU-LATER-Mobile-Cinema-App">
+              <img
+                src={`${import.meta.env.BASE_URL}img_2_xl.jpg`}
+                alt="project"
+                className="w-54.25 h-50 lg:w-94.25 lg:h-86.75 xl:w-134 xl:h-126
             object-cover transition-transform duration-500 ease-out group-hover:scale-105"
-            />
+              />
+            </a>
 
             {/* Вертикальная SVG линия */}
             <svg
