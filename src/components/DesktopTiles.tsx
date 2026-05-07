@@ -4,56 +4,56 @@ export function MobileTiles({className}: { className?: string }) {
   return (
     <div className={`w-full flex flex-col gap-y-2.5 ${className}`}>
       <div className="w-full flex justify-start">
-        <div className="grid w-51">
+        <div className="grid justify-items-stretch w-51">
           <Reveal delay={0.1}>
-            <div className="bg-[#cab9e6] justify-self-start text-[18px] p-2.5">Быстро</div>
+            <div className="bg-[#cab9e6] w-fit text-[18px] p-2.5">Быстро</div>
           </Reveal>
           <Reveal delay={0.2}>
-            <div className="bg-[#cab9e6] justify-self-end text-[18px] p-2.5">Качественно</div>
+            <div className="bg-[#cab9e6] ml-auto w-fit text-[18px] p-2.5">Качественно</div>
           </Reveal>
         </div>
       </div>
 
       <div className="w-full flex justify-end">
-        <div className="grid w-64.75">
+        <div className="grid justify-items-stretch w-64.75">
           <Reveal delay={0.3}>
-            <div className="bg-[#cab9e6] justify-self-end text-[18px] p-2.5">Комфортная</div>
+            <div className="bg-[#cab9e6] ml-auto w-fit text-[18px] p-2.5">Комфортная</div>
           </Reveal>
           <Reveal delay={0.4}>
-            <div className="bg-[#cab9e6] justify-self-start text-[18px] p-2.5">коммуникация</div>
+            <div className="bg-[#cab9e6] w-fit text-[18px] p-2.5">коммуникация</div>
           </Reveal>
         </div>
       </div>
 
       <div className="w-full flex justify-start">
-        <div className="grid w-45.75">
+        <div className="grid w-45.75 justify-items-stretch">
           <Reveal delay={0.5}>
-            <div className="bg-[#cab9e6] justify-self-start text-[18px] p-2.5">Любой </div>
+            <div className="bg-[#cab9e6] w-fit text-[18px] p-2.5">Любой </div>
           </Reveal>
           <Reveal delay={0.6}>
-            <div className="bg-[#cab9e6] justify-self-end text-[18px] p-2.5">сложности</div>
+            <div className="bg-[#cab9e6] ml-auto w-fit text-[18px] p-2.5">сложности</div>
           </Reveal>
         </div>
       </div>
 
       <div className="w-full flex justify-end">
-        <div className="grid w-60.75">
+        <div className="grid justify-items-stretch w-60.75">
           <Reveal delay={0.7}>
-            <div className="bg-[#cab9e6] justify-self-end text-[18px] p-2.5">Альтернативные</div>
+            <div className="bg-[#cab9e6] ml-auto w-fit text-[18px] p-2.5">Альтернативные</div>
           </Reveal>
           <Reveal delay={0.8}>
-            <div className="bg-[#cab9e6] justify-self-start text-[18px] p-2.5">решения</div>
+            <div className="bg-[#cab9e6] w-fit text-[18px] p-2.5">решения</div>
           </Reveal>
         </div>
       </div>
 
       <div className="w-full flex justify-start">
-        <div className="grid w-42">
+        <div className="grid justify-items-stretch w-42">
           <Reveal delay={0.9}>
-            <div className="bg-[#cab9e6] justify-self-start text-[18px] p-2.5">Стильно</div>
+            <div className="bg-[#cab9e6] w-fit text-[18px] p-2.5">Стильно</div>
           </Reveal>
           <Reveal delay={1}>
-            <div className="bg-[#cab9e6] justify-self-end text-[18px] p-2.5">Удобно</div>
+            <div className="bg-[#cab9e6] ml-auto w-fit text-[18px] p-2.5">Удобно</div>
           </Reveal>
         </div>
       </div>

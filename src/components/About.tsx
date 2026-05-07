@@ -11,8 +11,8 @@ export default function About() {
 
       {/* Текст */}
       <p className="
-                    text-[18px] leading-tight
-                    md:text-[24px] tracking-normal
+                    text-[18px] leading-tight mt-6
+                    md:text-[24px] md:mt-0
                     lg:text-[40px]
                     xl:text-[45px]
                     text-center md:text-left order-2 md:order-1">

@@ -19,7 +19,7 @@ export function ProjectsMobile({className}: {className?: string}) {
           <h2 className="text-start text-base">Сайт для спа салона</h2>
         </div>
         <div className="flex items-center p-1.25">
-          <h2 className='text-end text-base'>Приложение  для
+          <h2 className='text-end text-base/4 '>Приложение  для
             онлайн-кинотеатра</h2>
         </div>
         <div className="flex justify-end items-end">

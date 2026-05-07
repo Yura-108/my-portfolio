@@ -10,7 +10,7 @@ export default function Skills() {
       <div>
         {skills.map((skill, index) => (
           <Reveal key={index} delay={index * 0.1}>
-            <div className="flex flex-col xl:grid xl:grid-cols-2 xl:grid-rows-2">
+            <div className="flex flex-col xl:grid  xl:grid-rows-2 xl:grid-cols-[720px_960px]">
               <div className="flex justify-between
                 md:justify-start items-end border-b
                 md:border-b-2 lg:border-b-2 py-5 md:py-6 lg:py-10 gap-7">
@@ -25,8 +25,14 @@ export default function Skills() {
               <div className="hidden xl:block" />
               <div className="flex justify-start flex-wrap py-5 md:py-6 lg:py-10 gap-4 px-0 lg:px-26 xl:px-0">
                 {skill.badges.map((badge, i) => (
-                  <div key={i} className="p-2 lg:p-3 xl:p-4 bg-brand text-lg md:text-[28px] lg:text-4xl">
-                    {badge}
+                  <div key={i} className={`
+                  p-2.5 bg-brand text-lg 
+                  md:text-[28px] md:px-4 md:py-3
+                  lg:text-4xl lg:px-4.5 lg:py-3.5
+                  xl:px-6 xl:py-4
+                  ${badge.className}
+                  `}>
+                    {badge.name}
                   </div>
                 ))}
               </div>
