@@ -25,8 +25,10 @@ export default function Home() {
 
       <Line />
 
-      <ProjectsMobile className="block md:hidden"  />
-      <ProjectsDesktop className="hidden md:block" />
+      <div id="projects">
+        <ProjectsMobile className="block md:hidden"  />
+        <ProjectsDesktop className="hidden md:block" />
+      </div>
 
       <Skills />
 

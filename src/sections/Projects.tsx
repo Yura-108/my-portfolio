@@ -2,7 +2,7 @@ import {Reveal} from "../components/Reveal.tsx";
 
 export function ProjectsMobile({className}: {className?: string}) {
   return (
-    <section className={`w-full container mx-auto ${className} mt-15 md:mt-25 lg:mt-37.5`}>
+    <section id="projects" className={`w-full container mx-auto ${className} mt-15 md:mt-25 lg:mt-37.5`}>
       <Reveal>
         <h2 className="text-[40px] md:text-[84px] lg:text-9xl font-caramel mb-6 md:mb-10 lg:mb-12">
           my projects
@@ -41,7 +41,7 @@ export function ProjectsMobile({className}: {className?: string}) {
 
 export function ProjectsDesktop({className}: {className?: string}) {
   return (
-    <section className={`w-full container mt-25 ${className}`}>
+    <section id="projects" className={`w-full container mt-25 ${className}`}>
       <Reveal>
         <h2 className="text-[40px] md:text-[84px] lg:text-9xl font-caramel mb-6 md:mb-10 lg:mb-12">
           my projects

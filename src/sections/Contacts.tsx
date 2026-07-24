@@ -3,7 +3,7 @@ import {contactItems, gridCells} from "../constants/data.ts";
 
 export default function Contacts() {
   return (
-    <div className="container mt-15 md:mt-25 lg:mt-37.5">
+    <div id="contacts" className="container mt-15 md:mt-25 lg:mt-37.5">
       <Reveal>
         <h2 className="text-[40px] md:text-[84px] lg:text-9xl font-caramel">contacts</h2>
       </Reveal>

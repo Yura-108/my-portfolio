@@ -79,19 +79,19 @@ export const skills = [
 export const menu = [
   {
     title: "Проекты",
-    link: "#"
+    link: "#projects"
   },
   {
     title: "Этапы работы",
-    link: "#"
+    link: "#stages"
   },
   {
     title: "Услуги",
-    link: "#"
+    link: "#services"
   },
   {
     title: "Контакты",
-    link: "#"
+    link: "#contacts"
   },
 ];
 export const services = [

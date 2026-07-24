@@ -11,7 +11,7 @@ export default function Work() {
   };
 
   return (
-    <section className="container mt-15 md:mt-25 lg:mt-37.5">
+    <section id="stages" className="container mt-15 md:mt-25 lg:mt-37.5">
       <Reveal>
         <h2 className="text-[40px] md:text-[84px] lg:text-9xl font-caramel mb-6 md:mb-10 lg:mb-12">
           stages of work

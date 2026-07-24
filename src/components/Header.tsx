@@ -1,12 +1,28 @@
 import { menu } from "../constants/data";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import {Menu, X} from "lucide-react";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const headerRef = useRef<HTMLElement>(null);
+
+  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, link: string) => {
+    if (!link.startsWith("#")) return;
+
+    const target = document.querySelector(link);
+    if (!target) return;
+
+    e.preventDefault();
+    setIsOpen(false);
+
+    const headerHeight = headerRef.current?.offsetHeight ?? 0;
+    const top = target.getBoundingClientRect().top + window.scrollY - headerHeight + 100;
+
+    window.scrollTo({ top, behavior: "smooth" });
+  };
 
   return (
-    <header className="sticky top-0 z-50 backdrop-blur-md bg-white/90 border-b border-black/10 uppercase">
+    <header ref={headerRef} className="sticky top-0 z-50 backdrop-blur-md bg-white/90 border-b border-black/10 uppercase">
       <nav className="container mx-auto w-full flex justify-between items-centerpx-5 py-6 xl:px-30 lg:px-24 md:px-7.5 px-5">
         {/* Левая часть */}
         <div className="flex items-center">
@@ -19,15 +35,16 @@ export default function Header() {
             </span>
 
             {/* Dropdown Desktop */}
-            <div className="absolute left-1/2 -translate-x-1/2 top-full pt-6 opacity-0 invisible
+            <div className="absolute left-1/2 -translate-x-1/2 top-full pt-3 opacity-0 invisible
                             group-hover:opacity-100 group-hover:visible group-hover:translate-y-0
-                            translate-y-4 transition-all duration-500 z-50">
-              <div className="bg-white shadow-2xl px-12 py-10 flex flex-col items-center gap-7 rounded-2xl border border-black/5">
+                            translate-y-2 transition-all duration-300 z-50">
+              <div className="bg-white shadow-lg px-6 py-4 flex flex-col items-center gap-2 rounded-xl border border-black/5 min-w-48">
                 {menu.map((item, index) => (
                   <a
                     key={index}
                     href={item.link}
-                    className="relative text-2xl lg:text-3xl font-medium hover:scale-105 transition-all
+                    onClick={(e) => scrollToSection(e, item.link)}
+                    className="relative text-base lg:text-lg font-medium hover:scale-105 transition-all
                                after:absolute after:left-1/2 after:-bottom-1 after:h-0.5 after:w-0
                                after:bg-black after:transition-all hover:after:w-full hover:after:left-0"
                   >
@@ -94,7 +111,7 @@ export default function Header() {
             <a
               key={index}
               href={item.link}
-              onClick={() => setIsOpen(false)}
+              onClick={(e) => scrollToSection(e, item.link)}
               className="hover:text-brand active:scale-95 transition-all"
             >
               {item.title}
@@ -102,8 +119,8 @@ export default function Header() {
           ))}
 
           <a
-            href="#contact"
-            onClick={() => setIsOpen(false)}
+            href="#contacts"
+            onClick={(e) => scrollToSection(e, "#contacts")}
             className="font-semibold underline underline-offset-4 hover:text-brand transition-colors"
           >
             Обсудить проект
