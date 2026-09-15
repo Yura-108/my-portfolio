@@ -1,4 +1,4 @@
-import { menu } from "../constants/data";
+import { menu, telegramLink } from "../constants/data";
 import { useRef, useState } from "react";
 import {Menu, X} from "lucide-react";
 
@@ -21,13 +21,46 @@ export default function Header() {
     window.scrollTo({ top, behavior: "smooth" });
   };
 
+  // Стекло — те же токены, что у кнопки «Обсудить проект» в contacts
+  const glassClass =
+    "bg-white/40 backdrop-blur-md border-b border-white/60 shadow-[0_4px_24px_rgba(0,0,0,0.06),inset_0_1px_0_rgba(255,255,255,0.6)]";
+
+  // Панель меню: одинаковый фон, размеры и анимация (выезд слева направо) на всех экранах
+  const panelClass = `fixed left-0 top-full w-full z-40 transition-all duration-500 ease-out ${glassClass}`;
+
+  const panelContent = (
+    <div className="container mx-auto flex flex-col items-start gap-4 text-lg font-medium py-8 xl:px-30 lg:px-24 md:px-7.5 px-5">
+      {menu.map((item, index) => (
+        <a
+          key={index}
+          href={item.link}
+          onClick={(e) => scrollToSection(e, item.link)}
+          className="hover:text-brand active:scale-95 transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black rounded-sm"
+        >
+          {item.title}
+        </a>
+      ))}
+
+      {/* Видна только там, где «Обсудить проект» скрыта в шапке */}
+      <a
+        href={telegramLink}
+        target="_blank"
+        rel="noreferrer"
+        onClick={() => setIsOpen(false)}
+        className="md:hidden font-semibold underline underline-offset-4 hover:text-brand transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black rounded-sm"
+      >
+        Обсудить проект
+      </a>
+    </div>
+  );
+
   return (
-    <header ref={headerRef} className="sticky top-0 z-50 backdrop-blur-md bg-white/90 border-b border-black/10 uppercase">
+    <header ref={headerRef} className={`sticky top-0 z-50 uppercase ${glassClass}`}>
       <nav className="container mx-auto w-full flex justify-between items-center py-6 xl:px-30 lg:px-24 md:px-7.5 px-5">
         {/* Левая часть */}
         <div className="flex items-center">
-          {/* Desktop: Меню */}
-          <div className="hidden lg:block relative group">
+          {/* Desktop: Меню — зона наведения на всю высоту header, без разрыва до панели */}
+          <div className="hidden lg:flex items-center relative group -my-6 py-6">
             <span className="flex items-center gap-3 lg:gap-4 cursor-pointer text-xl lg:text-2xl xl:text-3xl font-semibold">
               <div className="w-8 lg:w-16 h-0.5 bg-black" />
               Меню
@@ -35,24 +68,11 @@ export default function Header() {
             </span>
 
             {/* Dropdown Desktop */}
-            <div className="absolute left-1/2 -translate-x-1/2 top-full pt-3 opacity-0 invisible
-                            group-hover:opacity-100 group-hover:visible group-hover:translate-y-0
-                            translate-y-2 transition-all duration-300 z-50">
-              <div className="bg-white shadow-lg px-6 py-4 flex flex-col items-center gap-2 rounded-xl border border-black/5 min-w-48">
-                {menu.map((item, index) => (
-                  <a
-                    key={index}
-                    href={item.link}
-                    onClick={(e) => scrollToSection(e, item.link)}
-                    className="relative text-base lg:text-lg font-medium hover:scale-105 transition-all
-                               after:absolute after:left-1/2 after:-bottom-1 after:h-0.5 after:w-0
-                               after:bg-black after:transition-all hover:after:w-full hover:after:left-0
-                               focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-black rounded-sm"
-                  >
-                    {item.title}
-                  </a>
-                ))}
-              </div>
+            <div
+              className={`${panelClass} opacity-0 invisible -translate-x-full
+                          group-hover:opacity-100 group-hover:visible group-hover:translate-x-0`}
+            >
+              {panelContent}
             </div>
           </div>
 
@@ -92,8 +112,9 @@ export default function Header() {
         <div className="flex items-center gap-8">
           {/* Desktop: Обсудить проект */}
           <a
-            href="#contacts"
-            onClick={(e) => scrollToSection(e, "#contacts")}
+            href={telegramLink}
+            target="_blank"
+            rel="noreferrer"
             className="hidden font-medium md:flex items-center gap-3 lg:gap-4 cursor-pointer text-xl lg:text-2xl xl:text-3xl hover:opacity-75 transition-opacity
                        focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-black"
           >
@@ -109,29 +130,10 @@ export default function Header() {
 
       {/* ==================== МОБИЛЬНОЕ МЕНЮ ==================== */}
       <div
-        className={`fixed top-full pb-8 bg-white z-40 transition-all duration-500 ease-out lg:hidden
-                    ${isOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10 pointer-events-none"}`}
+        className={`${panelClass} lg:hidden
+                    ${isOpen ? "opacity-100 visible translate-x-0" : "opacity-0 invisible -translate-x-full pointer-events-none"}`}
       >
-        <div className="flex flex-col px-16 gap-4 text-lg font-medium">
-          {menu.map((item, index) => (
-            <a
-              key={index}
-              href={item.link}
-              onClick={(e) => scrollToSection(e, item.link)}
-              className="hover:text-brand active:scale-95 transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black rounded-sm"
-            >
-              {item.title}
-            </a>
-          ))}
-
-          <a
-            href="#contacts"
-            onClick={(e) => scrollToSection(e, "#contacts")}
-            className="font-semibold underline underline-offset-4 hover:text-brand transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black rounded-sm"
-          >
-            Обсудить проект
-          </a>
-        </div>
+        {panelContent}
       </div>
     </header>
   );

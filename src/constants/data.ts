@@ -117,6 +117,9 @@ export const contactItems = [
   { label: "профиль", value: "Instagram", link: "https://www.instagram.com/pixel__warden" },
   { label: "портфолио", value: "Behance", link: "https://www.behance.net/29edf15a" }
 ];
+
+// Куда ведут все кнопки «Обсудить проект»
+export const telegramLink = contactItems[0].link;
 export const gridCells = [
   // --- 1 РЯД ---
   { type: 'main', itemIdx: 0, delay: 0.4, classes: "md:col-start-1 md:row-start-1" },

@@ -1,4 +1,5 @@
 import {Reveal} from "../components/Reveal.tsx";
+import {telegramLink} from "../constants/data.ts";
 
 export function ProjectsMobile({className}: {className?: string}) {
   return (
@@ -29,11 +30,17 @@ export function ProjectsMobile({className}: {className?: string}) {
         </div>
       </div>
       <div className="w-full h-13.75 flex justify-center items-center mt-10 bg-white">
-         <span className="text-base font-medium flex items-center gap-3 uppercase">
+         <a
+           href={telegramLink}
+           target="_blank"
+           rel="noreferrer"
+           className="w-full h-full text-base font-medium flex justify-center items-center gap-3 uppercase
+                      focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+         >
             <div className="w-9 h-px bg-black" />
             Обсудить проект
             <div className="w-9 h-px bg-black" />
-          </span>
+          </a>
       </div>
     </section>
   );
@@ -54,12 +61,15 @@ export function ProjectsDesktop({className}: {className?: string}) {
         <Reveal>
           {/* Добавлен overflow-hidden для зума */}
           <div className="relative w-full h-full group ">
-            <a target="_blank" href="https://www.behance.net/gallery/240483513/MIDNIGHT-Corporate-site">
+            <a
+              target="_blank"
+              href="https://www.behance.net/gallery/240483513/MIDNIGHT-Corporate-site"
+              className="block overflow-hidden w-56.5 h-52.25 lg:w-96.75 lg:h-89.25 xl:w-136 xl:h-129"
+            >
               <img
                 src={`${import.meta.env.BASE_URL}img_1_xl.jpg`}
                 alt="project"
-                className="w-56.5 h-52.25 lg:w-96.75 lg:h-89.25 xl:w-136 xl:h-129
-              object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+                className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
               />
             </a>
 
@@ -101,12 +111,15 @@ export function ProjectsDesktop({className}: {className?: string}) {
         {/* Добавлен overflow-hidden для зума */}
         <Reveal>
           <div className="relative w-full h-full flex justify-center items-center group ">
-            <a target="_blank" href="https://www.behance.net/gallery/240501471/SEE-YOU-LATER-Mobile-Cinema-App">
+            <a
+              target="_blank"
+              href="https://www.behance.net/gallery/240501471/SEE-YOU-LATER-Mobile-Cinema-App"
+              className="block overflow-hidden w-54.25 h-50 lg:w-94.25 lg:h-86.75 xl:w-134 xl:h-126"
+            >
               <img
                 src={`${import.meta.env.BASE_URL}img_2_xl.jpg`}
                 alt="project"
-                className="w-54.25 h-50 lg:w-94.25 lg:h-86.75 xl:w-134 xl:h-126
-            object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+                className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
               />
             </a>
 
@@ -134,9 +147,14 @@ export function ProjectsDesktop({className}: {className?: string}) {
 
        <Reveal>
          <div className="w-full h-full flex justify-end items-end group">
-           <div className="w-56.5 h-52.25 lg:w-96.75 lg:h-89.25 xl:w-136 xl:h-129
+           <a
+             href={telegramLink}
+             target="_blank"
+             rel="noreferrer"
+             className="w-56.5 h-52.25 lg:w-96.75 lg:h-89.25 xl:w-136 xl:h-129
           bg-[#cab9e6] flex justify-center items-center
             transition-transform duration-500 ease-out group-hover:scale-105
+            focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black
           ">
              <div className="relative text-xl uppercase w-36 h-24 lg:w-72 lg:h-44 xl:w-76 border-b-2 border-t-2">
                <div className="absolute inset-0 flex flex-col justify-center">
@@ -145,7 +163,7 @@ export function ProjectsDesktop({className}: {className?: string}) {
                  <p className="hidden lg:block text-center font-medium xl:font-semibold text-3xl">обсудить проект </p>
                </div>
              </div>
-           </div>
+           </a>
          </div>
        </Reveal>
       </div>

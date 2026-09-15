@@ -60,9 +60,9 @@ export default function PersonalData() {
       </ol>
 
       <div className="hidden md:flex w-full h-14.25 gap-x-4 lg:gap-x-5 xl:gap-x-7.5 mt-20 lg:mt-25 xl:mt-50">
-        <div className="bg-[#cab9e6] flex-1 flex justify-center items-center text-[28px] lg:text-[35px]">Telegram</div>
-        <div className="bg-[#cab9e6] flex-1 flex justify-center items-center text-[28px] lg:text-[35px]">Behance</div>
-        <div className="bg-[#cab9e6] flex-1 flex justify-center items-center text-[28px] lg:text-[35px]">Instagram</div>
+        <div className="bg-[#cab9e6] flex-1 flex justify-center items-center text-[28px] lg:text-[32px]">Telegram</div>
+        <div className="bg-[#cab9e6] flex-1 flex justify-center items-center text-[28px] lg:text-[32px]">Behance</div>
+        <div className="bg-[#cab9e6] flex-1 flex justify-center items-center text-[28px] lg:text-[32px]">Instagram</div>
       </div>
       <GridContactsContainer className={"block md:hidden mt-10"} />
     </div>

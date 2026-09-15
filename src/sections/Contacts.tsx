@@ -1,12 +1,5 @@
 import { Reveal } from "../components/Reveal";
 import {contactItems, gridCells} from "../constants/data.ts";
-import { Send, Camera, ExternalLink } from "lucide-react";
-
-const contactIcons: Record<string, typeof Send> = {
-  Telegram: Send,
-  Instagram: Camera,
-  Behance: ExternalLink,
-};
 
 export default function Contacts() {
   return (
@@ -41,7 +34,7 @@ export function GridContactsContainer({className}: { className?: string }) {
 
           if (cell.type === 'main') {
             const item = contactItems[cell.itemIdx!];
-            const Icon = contactIcons[item.value] ?? ExternalLink;
+
             return (
               <div key={`main-${idx}`} className={cell.classes}>
                 <Reveal delay={cell.delay}>
@@ -59,8 +52,8 @@ export function GridContactsContainer({className}: { className?: string }) {
                       <div className="h-px lg:h-0.5 w-3.5 md:w-5 lg:w-7.5 bg-black" />
                     </div>
                     <div className="w-full flex items-center justify-center gap-1.5 md:gap-2">
-                      <Icon className="h-3.5 w-3.5 md:h-5 md:w-5 lg:h-7 lg:w-7 shrink-0" />
-                      <p className="underline font-semibold text-sm md:text-xl lg:text-3xl xl:text-4xl text-center group-hover:text-white transition-colors duration-300">
+
+                          <p className="underline  text-sm md:text-xl lg:text-3xl xl:text-4xl text-center group-hover:text-white transition-colors duration-300">
                         {item.value}
                       </p>
                     </div>
@@ -83,17 +76,29 @@ export function GridContactsContainer({className}: { className?: string }) {
 
       {/* Задержку финальной кнопки увеличил до 1.2, чтобы она появилась ровно после того, как соберется сетка */}
       <Reveal delay={1.2}>
-        <div className="w-full h-13.75 flex justify-center items-center mt-10 bg-white">
+        <div className="relative w-full h-13.75 flex justify-center items-center mt-10 bg-white overflow-hidden">
+            {/* декоративные цветные пятна для эффекта стекла */}
+            <div className="pointer-events-none absolute w-40 h-40 rounded-full bg-[#cab9e6] blur-3xl opacity-60 -translate-x-24" />
+            <div className="pointer-events-none absolute w-40 h-40 rounded-full bg-[#b9d6e6] blur-3xl opacity-50 translate-x-28 translate-y-4" />
+
             <a
               href={contactItems[0].link}
               target="_blank"
               rel="noreferrer"
-              className="text-base font-medium flex items-center gap-3 uppercase cursor-pointer group
-                         focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black rounded-sm"
+              className="relative overflow-hidden w-full h-full text-base font-medium flex items-center justify-center gap-3 uppercase cursor-pointer group
+                         px-7 py-2.5
+                         bg-white/40 backdrop-blur-md border border-white/60
+                         shadow-[0_4px_24px_rgba(0,0,0,0.06),inset_0_1px_0_rgba(255,255,255,0.6)]
+                         transition-all duration-300
+                         hover:bg-[#cab9e6]/30 hover:border-white/80 hover:shadow-[0_8px_32px_rgba(202,185,230,0.5),inset_0_1px_0_rgba(255,255,255,0.8)] hover:scale-105
+                         focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
             >
-              <div className="w-9 h-px bg-black transition-transform duration-300 group-hover:w-12" />
-              Обсудить проект
-              <div className="w-9 h-px bg-black transition-transform duration-300 group-hover:w-12" />
+              {/* блик, пробегающий при наведении */}
+              <span className="pointer-events-none absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out bg-linear-to-r from-transparent via-white/70 to-transparent skew-x-[-20deg]" />
+
+              <div className="w-9 h-px bg-black transition-transform duration-300 group-hover:w-12 relative" />
+              <span className="relative">Обсудить проект</span>
+              <div className="w-9 h-px bg-black transition-transform duration-300 group-hover:w-12 relative" />
             </a>
         </div>
       </Reveal>
