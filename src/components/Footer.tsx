@@ -1,4 +1,4 @@
-// import {Reveal} from "./Reveal.tsx";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
@@ -6,7 +6,7 @@ export default function Footer() {
 
      <div className="container flex flex-col gap-y-5 py-7.5 px-5
     md:flex-row md:justify-between
-    .5 lg:py-12.5">
+    lg:py-12.5">
        <div>
          <p className="text-base md:text-2xl lg:text-3xl">© 2026 Darya Bogdan</p>
          <p className="text-base md:text-2xl lg:text-3xl block xl:hidden">
@@ -18,9 +18,13 @@ export default function Footer() {
 
 
        <div>
-         <p className="underline underline-offset-3 text-base md:text-2xl lg:text-3xl">
+         <Link
+           to="/personal-data"
+           className="underline underline-offset-3 text-base md:text-2xl lg:text-3xl hover:opacity-70 transition-opacity
+                      focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black rounded-sm"
+         >
            Политика конфиденциальности
-         </p>
+         </Link>
        </div>
 
      </div>

@@ -23,7 +23,7 @@ export default function Header() {
 
   return (
     <header ref={headerRef} className="sticky top-0 z-50 backdrop-blur-md bg-white/90 border-b border-black/10 uppercase">
-      <nav className="container mx-auto w-full flex justify-between items-centerpx-5 py-6 xl:px-30 lg:px-24 md:px-7.5 px-5">
+      <nav className="container mx-auto w-full flex justify-between items-center py-6 xl:px-30 lg:px-24 md:px-7.5 px-5">
         {/* Левая часть */}
         <div className="flex items-center">
           {/* Desktop: Меню */}
@@ -46,7 +46,8 @@ export default function Header() {
                     onClick={(e) => scrollToSection(e, item.link)}
                     className="relative text-base lg:text-lg font-medium hover:scale-105 transition-all
                                after:absolute after:left-1/2 after:-bottom-1 after:h-0.5 after:w-0
-                               after:bg-black after:transition-all hover:after:w-full hover:after:left-0"
+                               after:bg-black after:transition-all hover:after:w-full hover:after:left-0
+                               focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-black rounded-sm"
                   >
                     {item.title}
                   </a>
@@ -90,11 +91,16 @@ export default function Header() {
         {/* Правая часть */}
         <div className="flex items-center gap-8">
           {/* Desktop: Обсудить проект */}
-          <span className="hidden font-medium md:flex items-center gap-3 lg:gap-4 cursor-pointer text-xl lg:text-2xl xl:text-3xl hover:opacity-75 transition-opacity">
+          <a
+            href="#contacts"
+            onClick={(e) => scrollToSection(e, "#contacts")}
+            className="hidden font-medium md:flex items-center gap-3 lg:gap-4 cursor-pointer text-xl lg:text-2xl xl:text-3xl hover:opacity-75 transition-opacity
+                       focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-black"
+          >
             <div className="w-8 lg:w-16 h-0.5 bg-black" />
             Обсудить проект
             <div className="w-8 lg:w-16 h-0.5 bg-black" />
-          </span>
+          </a>
 
           {/* Mobile: Имя */}
           <span className="md:hidden text-base font-medium">Darya Bogdan</span>
@@ -112,7 +118,7 @@ export default function Header() {
               key={index}
               href={item.link}
               onClick={(e) => scrollToSection(e, item.link)}
-              className="hover:text-brand active:scale-95 transition-all"
+              className="hover:text-brand active:scale-95 transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black rounded-sm"
             >
               {item.title}
             </a>
@@ -121,7 +127,7 @@ export default function Header() {
           <a
             href="#contacts"
             onClick={(e) => scrollToSection(e, "#contacts")}
-            className="font-semibold underline underline-offset-4 hover:text-brand transition-colors"
+            className="font-semibold underline underline-offset-4 hover:text-brand transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black rounded-sm"
           >
             Обсудить проект
           </a>

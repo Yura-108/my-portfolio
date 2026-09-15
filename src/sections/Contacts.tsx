@@ -1,5 +1,12 @@
 import { Reveal } from "../components/Reveal";
 import {contactItems, gridCells} from "../constants/data.ts";
+import { Send, Camera, ExternalLink } from "lucide-react";
+
+const contactIcons: Record<string, typeof Send> = {
+  Telegram: Send,
+  Instagram: Camera,
+  Behance: ExternalLink,
+};
 
 export default function Contacts() {
   return (
@@ -34,23 +41,30 @@ export function GridContactsContainer({className}: { className?: string }) {
 
           if (cell.type === 'main') {
             const item = contactItems[cell.itemIdx!];
+            const Icon = contactIcons[item.value] ?? ExternalLink;
             return (
               <div key={`main-${idx}`} className={cell.classes}>
                 <Reveal delay={cell.delay}>
-                  <div className="bg-[#cab9e6] flex flex-col items-start md:items-center justify-center gap-1.5 py-2.25 md:p-5.75 md:gap-3 lg:p-9.25 lg:gap-4 xl:gap-5 xl:py-7 h-13 md:h-25 lg:h-37">
+                  <a
+                    href={item.link}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="group bg-[#cab9e6] flex flex-col items-start md:items-center justify-center gap-1.5 py-2.25 md:p-5.75 md:gap-3 lg:p-9.25 lg:gap-4 xl:gap-5 xl:py-7 h-13 md:h-25 lg:h-37
+                               transition-all duration-300 hover:shadow-lg hover:scale-[1.02]
+                               focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                  >
                     <div className="w-full flex items-center justify-center gap-2 md:gap-x-3.75">
                       <div className="h-px lg:h-0.5 w-3.5 md:w-5 lg:w-7.5 bg-black" />
                       <p className="text-xs md:text-[18px] lg:text-2xl xl:text-3xl">{item.label}</p>
                       <div className="h-px lg:h-0.5 w-3.5 md:w-5 lg:w-7.5 bg-black" />
                     </div>
-                    <div className="w-full flex justify-center">
-                      <a href={item.link} target="_blank" rel="noreferrer">
-                        <p className="underline text-xs md:text-[18px] lg:text-2xl xl:text-3xl text-center hover:text-white transition-colors duration-300">
-                          {item.value}
-                        </p>
-                      </a>
+                    <div className="w-full flex items-center justify-center gap-1.5 md:gap-2">
+                      <Icon className="h-3.5 w-3.5 md:h-5 md:w-5 lg:h-7 lg:w-7 shrink-0" />
+                      <p className="underline font-semibold text-sm md:text-xl lg:text-3xl xl:text-4xl text-center group-hover:text-white transition-colors duration-300">
+                        {item.value}
+                      </p>
                     </div>
-                  </div>
+                  </a>
                 </Reveal>
               </div>
             );
@@ -70,11 +84,17 @@ export function GridContactsContainer({className}: { className?: string }) {
       {/* Задержку финальной кнопки увеличил до 1.2, чтобы она появилась ровно после того, как соберется сетка */}
       <Reveal delay={1.2}>
         <div className="w-full h-13.75 flex justify-center items-center mt-10 bg-white">
-            <span className="text-base font-medium flex items-center gap-3 uppercase cursor-pointer group">
+            <a
+              href={contactItems[0].link}
+              target="_blank"
+              rel="noreferrer"
+              className="text-base font-medium flex items-center gap-3 uppercase cursor-pointer group
+                         focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black rounded-sm"
+            >
               <div className="w-9 h-px bg-black transition-transform duration-300 group-hover:w-12" />
               Обсудить проект
               <div className="w-9 h-px bg-black transition-transform duration-300 group-hover:w-12" />
-            </span>
+            </a>
         </div>
       </Reveal>
     </>
